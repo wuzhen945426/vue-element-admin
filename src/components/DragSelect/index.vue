@@ -32,7 +32,7 @@ export default {
     setSort() {
       const el = this.$refs.dragSelect.$el.querySelectorAll('.el-select__tags > span')[0]
       this.sortable = Sortable.create(el, {
-        ghostClass: 'sortable-ghost', // Class name for the drop placeholder,
+        ghostClass: 'sortable-ghost', 
         setData: function(dataTransfer) {
           dataTransfer.setData('Text', '')
         },
