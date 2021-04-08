@@ -1,10 +1,9 @@
 <template>
   <div class="components-container">
-     <div class="editor-content" v-html="content" />
     <div>
       <tinymce v-model="content" :height="300" />
     </div>
-   
+    <div class="editor-content" v-html="content" />
   </div>
 </template>
 
@@ -16,8 +15,7 @@ export default {
   components: { Tinymce },
   data() {
     return {
-    
-  content:""
+      content:""
     }
   }
 }

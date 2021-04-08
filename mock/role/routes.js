@@ -143,12 +143,6 @@ const asyncRoutes = [
         meta: { title: 'Tinymce' }
       },
       {
-        path: 'markdown',
-        component: 'views/components-demo/markdown',
-        name: 'MarkdownDemo',
-        meta: { title: 'Markdown' }
-      },
-      {
         path: 'json-editor',
         component: 'views/components-demo/json-editor',
         name: 'JsonEditorDemo',
@@ -179,12 +173,6 @@ const asyncRoutes = [
         meta: { title: 'Sticky' }
       },
       {
-        path: 'count-to',
-        component: 'views/components-demo/count-to',
-        name: 'CountToDemo',
-        meta: { title: 'Count To' }
-      },
-      {
         path: 'mixin',
         component: 'views/components-demo/mixin',
         name: 'ComponentMixinDemo',
@@ -207,18 +195,6 @@ const asyncRoutes = [
         component: 'views/components-demo/drag-select',
         name: 'DragSelectDemo',
         meta: { title: 'Drag Select' }
-      },
-      {
-        path: 'dnd-list',
-        component: 'views/components-demo/dnd-list',
-        name: 'DndListDemo',
-        meta: { title: 'Dnd List' }
-      },
-      {
-        path: 'drag-kanban',
-        component: 'views/components-demo/drag-kanban',
-        name: 'DragKanbanDemo',
-        meta: { title: 'Drag Kanban' }
       }
     ]
   },
@@ -506,17 +482,6 @@ const asyncRoutes = [
         component: 'views/i18n-demo/index',
         name: 'I18n',
         meta: { title: 'I18n', icon: 'international' }
-      }
-    ]
-  },
-
-  {
-    path: 'external-link',
-    component: 'layout/Layout',
-    children: [
-      {
-        path: 'https://github.com/PanJiaChen/vue-element-admin',
-        meta: { title: 'External Link', icon: 'link' }
       }
     ]
   },

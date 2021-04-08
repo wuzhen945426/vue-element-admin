@@ -22,6 +22,8 @@ import * as filters from './filters' // global filters
 
 import moment from 'moment' //时间控件
 
+Vue.prototype.$eventBus  = new Vue()
+
 /**
  * If you don't want to use mock-server
  * you want to use MockJs for mock api
