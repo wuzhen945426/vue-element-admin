@@ -4,7 +4,7 @@
     <div class="editor-custom-btn-container">
       <editorImage color="#1890ff" class="editor-upload-btn" @successCBK="imageSuccessCBK" />
     </div>
-    <el-button @click="getContent">提交</el-button>
+    <!-- <el-button @click="getContent">提交</el-button> -->
   </div>
   
 </template>
@@ -138,7 +138,7 @@ export default {
           _this.hasInit = true
           editor.on('NodeChange Change KeyUp SetContent', () => {
             this.hasChange = true
-           // this.$emit('input', editor.getContent())
+            this.$emit('input', editor.getContent())
           })
         },
         setup(editor) {
@@ -164,9 +164,9 @@ export default {
       window.tinymce.get(this.tinymceId).setContent(value)
     },
     getContent() {
-    this.content =   window.tinymce.get(this.tinymceId).getContent()
+   // this.content =   window.tinymce.get(this.tinymceId).getContent()
     this.$emit('input', window.tinymce.get(this.tinymceId).getContent())
-      console.log(window.tinymce.get(this.tinymceId).getContent())
+     // console.log(window.tinymce.get(this.tinymceId).getContent())
     },
     imageSuccessCBK(arr) {
       arr.forEach(v => window.tinymce.get(this.tinymceId).insertContent(`<img class="wscnph" src="${v.url}" >`))
