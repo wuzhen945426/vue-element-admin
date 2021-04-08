@@ -8,6 +8,9 @@
    <img src="https://i.loli.net/2021/04/08/lgTKcD7WVXuy9sm.png">
 </p>
 
+2、table
+   重新封装了一下分页组件，在el-table里面，js做了一个根据名称来搜索的小功能，目前最常用的就是搜索了
+
 
 ## Features
 
