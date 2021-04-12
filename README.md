@@ -14,6 +14,12 @@
 3、带截图的表格
    找了一个表格demo来写截图逻辑：此逻辑依靠html2canvas强行把某区域（可根据class）转化为图片并下载下来，目前做到ie兼容
 
+4、局部刷新方法例子
+   点击切换字体大小步骤：
+      1、赋值给全局字体大小$ELEMENT.size
+      2、提交更新store里的setSize（this.$store.dispatch('app/setSize', size)）
+      3、取当前路由路径并重定向实现刷新
+
 
 ## Features
 
