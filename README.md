@@ -1,99 +1,29 @@
-<p align="center">
-  <img width="320" src="https://wpimg.wallstcn.com/ecc53a42-d79b-42e2-8852-5126b810a4c8.svg">
-</p>
+# vue-element-admin
+根据开源vue-admin项目学习整体框架设计并改编成为一个自己的后台管理项目
+```
+1、发布及表格接收模块
+   封装的是Tinymce富文本编辑器，点击发布后用form来接受到页面所有的信息
+   （由于无后端，所以不能存储form数据并且供表格页面去掉接口，并且深浅拷贝当数据源为空数据也会消失，最终采用了localstorage来暂存数据）
+   整个项目采用momentjs来处理时间格式，细节之处在于富文本编辑完成后转化为代码再有v-html来显示在列表里，这就意味着可以在富文本编辑的格式样式可以在表格里排版正确。
+   
+2、table
+   重新封装了一下分页组件，在el-table里面，js做了一个根据名称来搜索的小功能，目前最常用的就是搜索了
+   
+3、带截图的表格
+   找了一个表格demo来写截图逻辑：此逻辑依靠html2canvas强行把某区域（可根据class）转化为图片并下载下来，目前做到ie兼容
 
-<p align="center">
-  <a href="https://github.com/vuejs/vue">
-    <img src="https://img.shields.io/badge/vue-2.6.10-brightgreen.svg" alt="vue">
-  </a>
-  <a href="https://github.com/ElemeFE/element">
-    <img src="https://img.shields.io/badge/element--ui-2.7.0-brightgreen.svg" alt="element-ui">
-  </a>
-  <a href="https://travis-ci.org/PanJiaChen/vue-element-admin" rel="nofollow">
-    <img src="https://travis-ci.org/PanJiaChen/vue-element-admin.svg?branch=master" alt="Build Status">
-  </a>
-  <a href="https://github.com/PanJiaChen/vue-element-admin/blob/master/LICENSE">
-    <img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license">
-  </a>
-  <a href="https://github.com/PanJiaChen/vue-element-admin/releases">
-    <img src="https://img.shields.io/github/release/PanJiaChen/vue-element-admin.svg" alt="GitHub release">
-  </a>
-  <a href="https://gitter.im/vue-element-admin/discuss">
-    <img src="https://badges.gitter.im/Join%20Chat.svg" alt="gitter">
-  </a>
-  <a href="https://panjiachen.github.io/vue-element-admin-site/donate">
-    <img src="https://img.shields.io/badge/%24-donate-ff69b4.svg" alt="donate">
-  </a>
-</p>
+4、局部刷新方法例子
+    点击切换字体大小步骤：
+      1、赋值给全局字体大小$ELEMENT.size
+      2、提交更新store里的setSize（this.$store.dispatch('app/setSize', size)
+      3、取当前路由路径并重定向实现刷新
 
-English | [简体中文](./README.zh-CN.md) | [日本語](./README.ja.md) | [Spanish](./README.es.md)
-
-<p align="center">
-  <b>SPONSORED BY</b>
-</p>
-<table align="center" cellspacing="0" cellpadding="0">
-  <tbody>
-    <tr>
-      <td align="center" valign="middle" width="250">
-        <a href="https://www.duohui.cn/?utm_source=vue-element-admin&utm_medium=web&utm_campaign=vue-element-admin_github" title="多会" target="_blank">
-          <img height="60px" src="https://qiniu.cdn.duohui.co/brand/duohui.png" title="多会 - 活动服务销售平台">
-          <p>活动服务销售平台</p>
-        </a>
-      </td>
-      <td align="center" valign="middle" width="250">
-        <a href="https://youke.co/?utm_source=vue-element-admin&utm_medium=web&utm_campaign=vue-element-admin_github" title="有客" target="_blank">
-          <img height="60px" src="https://qiniu.cdn.duohui.co/brand/youke.png" title="有客 - 客户消息直达工作群">
-          <p>客户消息直达工作群</p>
-        </a>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-## Introduction
-
-[vue-element-admin](https://panjiachen.github.io/vue-element-admin) is a production-ready front-end solution for admin interfaces. It is based on [vue](https://github.com/vuejs/vue) and uses the UI Toolkit [element-ui](https://github.com/ElemeFE/element).
-
-[vue-element-admin](https://panjiachen.github.io/vue-element-admin) is based on the newest development stack of vue and it has a built-in i18n solution, typical templates for enterprise applications, and lots of awesome features. It helps you build large and complex Single-Page Applications. I believe whatever your needs are, this project will help you.
-
-- [Preview](https://panjiachen.github.io/vue-element-admin)
-
-- [Documentation](https://panjiachen.github.io/vue-element-admin-site/)
-
-- [Gitter](https://gitter.im/vue-element-admin/discuss)
-
-- [Donate](https://panjiachen.github.io/vue-element-admin-site/donate/)
-
-- [Wiki](https://github.com/PanJiaChen/vue-element-admin/wiki)
-
-- [Gitee](https://panjiachen.gitee.io/vue-element-admin/) 国内用户可访问该地址在线预览
-
-- Base template recommends using: [vue-admin-template](https://github.com/PanJiaChen/vue-admin-template)
-- Desktop: [electron-vue-admin](https://github.com/PanJiaChen/electron-vue-admin)
-- Typescript: [vue-typescript-admin-template](https://github.com/Armour/vue-typescript-admin-template) (Credits: [@Armour](https://github.com/Armour))
-- [awesome-project](https://github.com/PanJiaChen/vue-element-admin/issues/2312)
-
-**After the `v4.1.0+` version, the default master branch will not support i18n. Please use [i18n Branch](https://github.com/PanJiaChen/vue-element-admin/tree/i18n), it will keep up with the master update**
-
-**The current version is `v4.0+` build on `vue-cli`. If you find a problem, please put [issue](https://github.com/PanJiaChen/vue-element-admin/issues/new). If you want to use the old version , you can switch branch to [tag/3.11.0](https://github.com/PanJiaChen/vue-element-admin/tree/tag/3.11.0), it does not rely on `vue-cli`**
-
-**This project does not support low version browsers (e.g. IE). Please add polyfill by yourself.**
-
-## Preparation
-
-You need to install [node](https://nodejs.org/) and [git](https://git-scm.com/) locally. The project is based on [ES2015+](https://es6.ruanyifeng.com/), [vue](https://cn.vuejs.org/index.html), [vuex](https://vuex.vuejs.org/zh-cn/), [vue-router](https://router.vuejs.org/zh-cn/), [vue-cli](https://github.com/vuejs/vue-cli) , [axios](https://github.com/axios/axios) and [element-ui](https://github.com/ElemeFE/element), all request data is simulated using [Mock.js](https://github.com/nuysoft/Mock).
-Understanding and learning this knowledge in advance will greatly help the use of this project.
-
-[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/PanJiaChen/vue-element-admin/tree/CodeSandbox)
-
-<p align="center">
-  <img width="900" src="https://wpimg.wallstcn.com/a5894c1b-f6af-456e-82df-1151da0839bf.png">
-</p>
-
-### Flatlogic
-
-<a href="https://flatlogic.com/admin-dashboards?from=vue-element-admin"><img width="150px" src="https://wpimg.wallstcn.com/9c0b719b-5551-4c1e-b776-63994632d94a.png" /></a><p>Admin Dashboard Templates made with Vue, React and Angular.</p>
-
+5、图表界面使用了echarts
+    封装了几个简单echarts图 注意点:
+     1、类似echarts这种需要拿到demo才开始工作的插件来说，在初始化时要在mounted生命周期进行初始化 
+     2、随数据改变时实时更新可以在watch进行监听，有变化就重新setOption（deep深度监听） 
+     3、有的时候组件放在el-table或者el-dialog里面时，发现宽度显示有问题，来监听改变的动作，然后手动调用echarts的resize()方法；如果是 el-dialog之中放图表就比较简单了，只要在 dialog 出现之后再 init 图表就可以了
+```
 ## Features
 
 ```
@@ -207,12 +137,3 @@ npm run lint
 npm run lint -- --fix
 ```
 
-Refer to [Documentation](https://panjiachen.github.io/vue-element-admin-site/guide/essentials/deploy.html) for more information
-
-## Changelog
-
-Detailed changes for each release are documented in the [release notes](https://github.com/PanJiaChen/vue-element-admin/releases).
-
-[MIT](https://github.com/PanJiaChen/vue-element-admin/blob/master/LICENSE)
-
-Copyright (c) 2017-present PanJiaChen
