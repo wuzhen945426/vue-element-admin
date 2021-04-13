@@ -22,7 +22,7 @@
     封装了几个简单echarts图 注意点:
      1、类似echarts这种需要拿到demo才开始工作的插件来说，在初始化时要在mounted生命周期进行初始化 
      2、随数据改变时实时更新可以在watch进行监听，有变化就重新setOption（deep深度监听） 
-     3、有的时候组件放在el-table或者el-dialog里面时，发现宽度显示有问题，来监听改变的动作，然后手动调用echarts的resize()方法；如果是 el-dialog之中放图表就比较简单了，只要在 dialog 出现之后         再 init 图表就可以了
+     3、有的时候组件放在el-table或者el-dialog里面时，发现宽度显示有问题，来监听改变的动作，然后手动调用echarts的resize()方法；如果是 el-dialog之中放图表就比较简单了，只要在 dialog 出现之后再 init 图表就可以了
 ```
 ## Features
 
