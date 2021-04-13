@@ -16,16 +16,16 @@
    找了一个表格demo来写截图逻辑：此逻辑依靠html2canvas强行把某区域（可根据class）转化为图片并下载下来，目前做到ie兼容
  <p></p>
 <p>4、局部刷新方法例子</p>
-   点击切换字体大小步骤：
-      1、赋值给全局字体大小$ELEMENT.size
-      2、提交更新store里的setSize（this.$store.dispatch('app/setSize', size)）
-      3、取当前路由路径并重定向实现刷新
+   <p> 点击切换字体大小步骤：</p>
+     <p>  1、赋值给全局字体大小$ELEMENT.size</p>
+      <p> 2、提交更新store里的setSize（this.$store.dispatch('app/setSize', size)）</p>
+      <p> 3、取当前路由路径并重定向实现刷新</p>
  <p></p>
 <p>5、图表界面使用了echarts</p>
-   封装了几个简单echarts图 注意点:
-   1、类似echarts这种需要拿到demo才开始工作的插件来说，在初始化时要在mounted生命周期进行初始化 
-   2、随数据改变时实时更新可以在watch进行监听，有变化就重新setOption（deep深度监听） 
-   3、有的时候组件放在el-table或者el-dialog里面时，发现宽度显示有问题，来监听改变的动作，然后手动调用echarts的resize()方法；如果是 el-dialog之中放图表就比较简单了，只要在 dialog 出现之后再 init 图表就可以了
+    <p>封装了几个简单echarts图 注意点:</p>
+   <p> 1、类似echarts这种需要拿到demo才开始工作的插件来说，在初始化时要在mounted生命周期进行初始化 </p>
+    <p>2、随数据改变时实时更新可以在watch进行监听，有变化就重新setOption（deep深度监听） </p>
+   <p> 3、有的时候组件放在el-table或者el-dialog里面时，发现宽度显示有问题，来监听改变的动作，然后手动调用echarts的resize()方法；如果是 el-dialog之中放图表就比较简单了，只要在 dialog 出现之后再 init 图表就可以了</p>
 
 ## Features
 
