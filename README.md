@@ -1,6 +1,6 @@
 # vue-element-admin
 根据开源vue-admin项目学习整体框架设计并改编成为一个自己的后台管理项目
-
+```
 <p>1、发布及表格接收模块</p>
    封装的是Tinymce富文本编辑器，点击发布后用form来接受到页面所有的信息，（由于无后端，所以不能存储form数据并且供表格页面去掉接口，并且深浅拷贝当数据源为空数据也会消失，最终采用了localstorage来暂存数据）。整个项目采用momentjs来处理时间格式。细节之处在于富文本编辑完成后转化为代码再有v-html来显示在列表里，这就意味着可以在富文本编辑的格式样式可以在表格里排版正确。
    <p></p>
@@ -26,7 +26,7 @@
   <span></span><span></span> <p> 1、类似echarts这种需要拿到demo才开始工作的插件来说，在初始化时要在mounted生命周期进行初始化 </p>
   <span></span><span></span>  <p>2、随数据改变时实时更新可以在watch进行监听，有变化就重新setOption（deep深度监听） </p>
  <span></span>v  <p> 3、有的时候组件放在el-table或者el-dialog里面时，发现宽度显示有问题，来监听改变的动作，然后手动调用echarts的resize()方法；如果是 el-dialog之中放图表就比较简单了，只要在 dialog 出现之后再 init 图表就可以了</p>
-
+```
 ## Features
 
 ```
