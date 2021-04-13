@@ -1,26 +1,26 @@
 # vue-element-admin
 根据开源vue-admin项目学习整体框架设计并改编成为一个自己的后台管理项目
 
-1、发布及表格接收模块
+<p>1、发布及表格接收模块</p>
    封装的是Tinymce富文本编辑器，点击发布后用form来接受到页面所有的信息，（由于无后端，所以不能存储form数据并且供表格页面去掉接口，并且深浅拷贝当数据源为空数据也会消失，最终采用了localstorage来暂存数据）。整个项目采用momentjs来处理时间格式。细节之处在于富文本编辑完成后转化为代码再有v-html来显示在列表里，这就意味着可以在富文本编辑的格式样式可以在表格里排版正确。
 <p align="center">
   <img  src="https://i.loli.net/2021/04/08/RcklInG1JH2Epva.png">
    <img src="https://i.loli.net/2021/04/08/lgTKcD7WVXuy9sm.png">
 </p>
 
-2、table
+<p>2、table</p>
    重新封装了一下分页组件，在el-table里面，js做了一个根据名称来搜索的小功能，目前最常用的就是搜索了
    
-3、带截图的表格
+<p>3、带截图的表格</p>
    找了一个表格demo来写截图逻辑：此逻辑依靠html2canvas强行把某区域（可根据class）转化为图片并下载下来，目前做到ie兼容
 
-4、局部刷新方法例子
+<p>4、局部刷新方法例子</p>
    点击切换字体大小步骤：
       1、赋值给全局字体大小$ELEMENT.size
       2、提交更新store里的setSize（this.$store.dispatch('app/setSize', size)）
       3、取当前路由路径并重定向实现刷新
 
-5、图表界面使用了echarts
+<p>5、图表界面使用了echarts</p>
    封装了几个简单echarts图 注意点:
    1、类似echarts这种需要拿到demo才开始工作的插件来说，在初始化时要在mounted生命周期进行初始化 
    2、随数据改变时实时更新可以在watch进行监听，有变化就重新setOption（deep深度监听） 
