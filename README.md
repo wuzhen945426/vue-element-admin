@@ -16,10 +16,10 @@
    找了一个表格demo来写截图逻辑：此逻辑依靠html2canvas强行把某区域（可根据class）转化为图片并下载下来，目前做到ie兼容
  <p></p>
 <p>4、局部刷新方法例子</p>
- <span></span>  <p> 点击切换字体大小步骤：</p>
-    <span></span><span></span> <p>  1、赋值给全局字体大小$ELEMENT.size</p>
-     <span></span><span></span> <p> 2、提交更新store里的setSize（this.$store.dispatch('app/setSize', size)）</p>
-     <span></span><span></span> <p> 3、取当前路由路径并重定向实现刷新</p>
+   &nbsp;<p> 点击切换字体大小步骤：</p>
+   &nbsp;&nbsp;<p>  1、赋值给全局字体大小$ELEMENT.size</p>
+     &nbsp;&nbsp; <p> 2、提交更新store里的setSize（this.$store.dispatch('app/setSize', size)）</p>
+     &nbsp;&nbsp; <p> 3、取当前路由路径并重定向实现刷新</p>
  <p></p>
 <p>5、图表界面使用了echarts</p>
    <span></span> <p>封装了几个简单echarts图 注意点:</p>
