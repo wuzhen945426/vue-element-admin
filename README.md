@@ -26,7 +26,7 @@
  
  6、PDF
     1、window.print()利用浏览器自带的打印功能实现打印或者是转为PDF下载  index.vue里按原框架意思可将打印的代码放入content通过v-html指令转化并打印
-    2、自定义封装一个print()组件，可直接引用使用
+    2、自定义封装一个print()组件，可直接引用使用  index2.vue是例子
     3、此方法需要设置浏览器打印的设置勾选背景图形，所以这里要注意如果是给用户使用的话让每个用户勾选不太方便 在以下的代码可给想要打印的最外层设置css，例如boby
      boby {
            -webkit-print-color-adjust:exact;
