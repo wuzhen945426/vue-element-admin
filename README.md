@@ -23,6 +23,17 @@
      1、类似echarts这种需要拿到demo才开始工作的插件来说，在初始化时要在mounted生命周期进行初始化 
      2、随数据改变时实时更新可以在watch进行监听，有变化就重新setOption（deep深度监听） 
      3、有的时候组件放在el-table或者el-dialog里面时，发现宽度显示有问题，来监听改变的动作，然后手动调用echarts的resize()方法；如果是 el-dialog之中放图表就比较简单了，只要在 dialog 出现之后再 init 图表就可以了
+ 
+ 6、PDF
+    1、window.print()利用浏览器自带的打印功能实现打印或者是转为PDF下载  index.vue里按原框架意思可将打印的代码放入content通过v-html指令转化并打印
+    2、自定义封装一个print()组件，可直接引用使用
+    3、此方法需要设置浏览器打印的设置勾选背景图形，所以这里要注意如果是给用户使用的话让每个用户勾选不太方便 在以下的代码可给想要打印的最外层设置css，例如boby
+     boby {
+           -webkit-print-color-adjust:exact;
+           -moz-print-color-adjust:exact;
+           -ms-print-color-adjust:exact;
+           print-color-adjust:exact;
+          }
 ```
 ## Features
 
