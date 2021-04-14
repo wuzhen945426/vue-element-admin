@@ -34,6 +34,12 @@
            -ms-print-color-adjust:exact;
            print-color-adjust:exact;
           }
+ 7、登录
+    1、点击登录触发this.$store.dispatch('user/login', this.loginForm)
+    2、登录成功后，服务端会返回一个 token（该token的是一个能唯一标示用户身份的一个key），之后我们将token存储在本地cookie之中，这样下次打开页面或者刷新页面的时候能记住用户的登录状态，不用再去登录页面重新登录了。
+    3、permission.js会验证是否存在token并且开始获取用户信息getInfo，token不存在则进入白名单逻辑
+    
+    
 ```
 ## Features
 
