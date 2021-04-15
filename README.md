@@ -38,6 +38,12 @@
     1、点击登录触发this.$store.dispatch('user/login', this.loginForm)
     2、登录成功后，服务端会返回一个 token（该token的是一个能唯一标示用户身份的一个key），之后我们将token存储在本地cookie之中，这样下次打开页面或者刷新页面的时候能记住用户的登录状态，不用再去登录页面重新登录了。
     3、permission.js会验证是否存在token并且开始获取用户信息getInfo，token不存在则进入白名单逻辑
+ 
+ 8、权限
+    1、项目中src/store/modules/permission.js通过用户的权限和之前在router.js里面asyncRouterMap的每一个页面所需要的权限做匹配，最后返回一个该用户能够访问路由有哪些。
+    2、src/permission.js在判断完拉取用户个人信息后，生成可访问的路由表并动态添加，由此每个权限都有自己的侧边栏菜单显示
+    3、 next({ ...to, replace: true })   to为了确保动态路由添加完毕才会next()
+
     
     
 ```
