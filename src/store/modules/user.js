@@ -36,7 +36,7 @@ const actions = {
       login({ username: username.trim(), password: password }).then(response => {
         const { data } = response
         commit('SET_TOKEN', data.token)
-        setToken(data.token)
+        setToken(data.token)   //登录成功后将token存储在cookie之中  permission.js会验证是否存在token
         resolve()
       }).catch(error => {
         reject(error)
