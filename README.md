@@ -25,7 +25,7 @@
      3、有的时候组件放在el-table或者el-dialog里面时，发现宽度显示有问题，来监听改变的动作，然后手动调用echarts的resize()方法；如果是 el-dialog之中放图表就比较简单了，只要在 dialog 出现之后再 init 图表就可以了
  
  6、PDF
-    1、window.print()利用浏览器自带的打印功能实现打印或者是转为PDF下载  index.vue里按原框架意思可将打印的代码放入content通过v-html指令转化并打印
+    1、window.print()利用浏览器自带的打印功能实现打印或者是转为PDF下载  index4.vue里按原框架意思可将打印的代码放入content通过v-html指令转化并打印
     2、自定义封装一个print()组件，可直接引用使用  index2.vue是例子
     3、此方法需要设置浏览器打印的设置勾选背景图形，所以这里要注意如果是给用户使用的话让每个用户勾选不太方便 在以下的代码可给想要打印的最外层设置css，例如boby
      boby {
@@ -34,6 +34,8 @@
            -ms-print-color-adjust:exact;
            print-color-adjust:exact;
           }
+     4、增加自定义截图区域，可根据外层嵌套得div来打印自己想打印的区域，排除掉侧边栏及上侧导航栏
+发现问题：打印区域如果有canvas形成的界面，打印及下载的时候是显示不出来的，解决办法是把canvas转化为img标签。但是在刚开始我们自定义区域打印的时候操作了dom，这两点冲突。创建一个img标签的dom，抓取canvas标签遍历转化src地址赋值给img的src，从而更换掉canvas的dom，定义一个空数组来把img节点投进去并且遍历此数组，开始更换dom元素，特别注意是更换dom时就会消失掉一个dom，所以替换的时候一直抓取到的是原canvas原生dom里面索引为0的位置，这里一定要用的是 $(".chart")[0].replaceWith(arr[i]);    例子：index.vue
  7、登录
     1、点击登录触发this.$store.dispatch('user/login', this.loginForm)
     2、登录成功后，服务端会返回一个 token（该token的是一个能唯一标示用户身份的一个key），之后我们将token存储在本地cookie之中，这样下次打开页面或者刷新页面的时候能记住用户的登录状态，不用再去登录页面重新登录了。
